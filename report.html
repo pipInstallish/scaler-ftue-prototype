@@ -7,9 +7,10 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Source+Serif+4:wght@600;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap"
     rel="stylesheet"
   />
+  <link rel="stylesheet" href="ClashGrotesk_Complete/Fonts/WEB/css/clash-grotesk.css" />
   <link
     rel="stylesheet"
     href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css"
@@ -17,7 +18,8 @@
   <style>
     :root {
       --font: "Plus Jakarta Sans", sans-serif;
-      --font-display: "Source Serif 4", serif;
+      --font-display: "ClashGrotesk", "Clash Grotesk", sans-serif;
+      --blue: #0055ff;
       --black: #0a0a0a;
       --white: #ffffff;
       --gray-50: #f8f8f8;
@@ -55,6 +57,26 @@
     a {
       color: inherit;
       text-decoration: none;
+    }
+
+    .page-back {
+      position: fixed;
+      top: 16px;
+      left: 16px;
+      z-index: 40;
+      min-height: 42px;
+      padding: 0 14px;
+      border: 1px solid var(--border-strong);
+      background: var(--white);
+      color: var(--black);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      cursor: pointer;
     }
 
     .shell {
@@ -121,7 +143,8 @@
     }
 
     .button {
-      background: var(--cta-black);
+      background: var(--blue);
+      border-color: var(--blue);
       color: var(--white);
     }
 
@@ -159,6 +182,7 @@
       font-size: clamp(44px, 7vw, 88px);
       line-height: 0.92;
       letter-spacing: -0.06em;
+      font-weight: 400;
     }
 
     .hero-subtitle,
@@ -391,6 +415,11 @@
   </style>
 </head>
 <body>
+  <button class="page-back" type="button" onclick="window.history.back()">
+    <i class="ph ph-arrow-left"></i>
+    Back
+  </button>
+
   <div class="report-topbar">
     <div class="shell">
       <div class="brand">

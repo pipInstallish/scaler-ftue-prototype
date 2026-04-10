@@ -57,6 +57,27 @@
       text-decoration: none;
     }
 
+    .page-back {
+      position: fixed;
+      top: 16px;
+      left: 16px;
+      z-index: 40;
+      min-height: 42px;
+      padding: 0 14px;
+      border: 1px solid var(--border-strong);
+      background: rgba(255, 255, 255, 0.08);
+      color: var(--text);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      cursor: pointer;
+      backdrop-filter: blur(8px);
+    }
+
     .shell {
       width: min(var(--max), calc(100% - 32px));
       margin: 0 auto;
@@ -653,6 +674,11 @@
   </style>
 </head>
 <body>
+  <button class="page-back" type="button" onclick="window.history.back()">
+    <i class="ph ph-arrow-left"></i>
+    Back
+  </button>
+
   <main class="shell">
     <section class="hero">
       <div class="eyebrow">Your 12-month roadmap to</div>
