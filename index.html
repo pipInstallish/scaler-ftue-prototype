@@ -18,6 +18,7 @@
   <style>
     :root {
       --blue: #0055ff;
+      --blue-hover: #0d59f2;
       --navy: #011845;
       --cta-blue: #004ce5;
       --bg: #fcfcfc;
@@ -313,6 +314,30 @@
       gap: 10px;
     }
 
+    .welcome-stage .cta-row .button {
+      order: 1;
+    }
+
+    .welcome-stage .cta-row .status-line {
+      order: 2;
+      margin-top: 0;
+    }
+
+    #screen-2 .cta-row {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 10px;
+    }
+
+    #screen-2 .cta-row .button {
+      order: 1;
+    }
+
+    #screen-2 .cta-row .status-line {
+      order: 2;
+      margin-top: 0;
+    }
+
     .hero-title,
     .section-title,
     .quote-text,
@@ -412,6 +437,44 @@
 
     .field-grid {
       grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    #screen-2 .field-grid {
+      grid-template-columns: repeat(12, minmax(0, 1fr));
+    }
+
+    #screen-2 .section-title {
+      max-width: none;
+      white-space: nowrap;
+    }
+
+    #screen-2 .field-grid .field:nth-child(1) {
+      grid-column: span 3;
+    }
+
+    #screen-2 .field-grid .field:nth-child(2) {
+      grid-column: span 9;
+    }
+
+    #screen-2 .field-grid .field:nth-child(3),
+    #screen-2 .field-grid .field:nth-child(4) {
+      grid-column: span 6;
+    }
+
+    #screen-2 .field-grid .field:nth-child(5) {
+      grid-column: span 6;
+    }
+
+    #screen-2 .field-grid .field:nth-child(6) {
+      grid-column: span 6;
+    }
+
+    #screen-2 .field-grid .field:nth-child(7) {
+      grid-column: span 3;
+    }
+
+    #screen-2 .field-grid .field:nth-child(8) {
+      grid-column: span 9;
     }
 
     .field {
@@ -628,6 +691,11 @@
       transform: translateY(-1px);
     }
 
+    .button:hover {
+      background: var(--blue-hover);
+      border-color: var(--blue-hover);
+    }
+
     .status-line {
       display: flex;
       align-items: center;
@@ -829,9 +897,13 @@
               <label>Relationship</label>
               <select><option>Parent</option><option>Sibling</option><option>Spouse</option></select>
             </div>
-            <div class="field full">
+            <div class="field">
+              <label>Country code</label>
+              <input type="tel" value="+91" />
+            </div>
+            <div class="field">
               <label>Guardian / secondary contact number</label>
-              <input type="tel" value="+91 98XXXXXX90" />
+              <input type="tel" value="98XXXXXX90" />
             </div>
           </div>
           <div class="cta-row">
