@@ -338,6 +338,21 @@
       margin-top: 0;
     }
 
+    #screen-3 .cta-row {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 10px;
+    }
+
+    #screen-3 .cta-row .button {
+      order: 1;
+    }
+
+    #screen-3 .cta-row .status-line {
+      order: 2;
+      margin-top: 0;
+    }
+
     .hero-title,
     .section-title,
     .quote-text,
@@ -444,6 +459,11 @@
     }
 
     #screen-2 .section-title {
+      max-width: none;
+      white-space: nowrap;
+    }
+
+    #screen-3 .section-title {
       max-width: none;
       white-space: nowrap;
     }
@@ -948,12 +968,18 @@
             <div class="field full">
               <label>Current job role</label>
               <select>
+                <option>Student</option>
+                <option>Fresher</option>
                 <option>Software Engineer · Service Company</option>
                 <option>Software Engineer · Product Company</option>
                 <option>Data Scientist / ML Engineer</option>
                 <option>AI / ML Engineer · LLMs / RAG / Agents</option>
                 <option>DevOps / Cloud / Infra Engineer</option>
-                <option>QA / Support / Other Tech Role</option>
+                <option>QA / Support / Tech Role</option>
+                <option>Product Manager</option>
+                <option>Product Analyst</option>
+                <option>Product Designer</option>
+                <option>Other</option>
               </select>
             </div>
             <div class="field">
@@ -976,7 +1002,7 @@
               </select>
             </div>
             <div class="field full">
-              <label>Current CTC</label>
+              <label>Current CTC in Lakhs Per Annum</label>
               <input type="number" min="0" step="0.1" value="12" placeholder="Enter amount in LPA. Use 0 if fresher." />
             </div>
           </div>
