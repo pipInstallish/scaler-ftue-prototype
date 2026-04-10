@@ -353,6 +353,36 @@
       margin-top: 0;
     }
 
+    #screen-t-1 .cta-row {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 10px;
+    }
+
+    #screen-t-1 .cta-row .button {
+      order: 1;
+    }
+
+    #screen-t-1 .cta-row .status-line {
+      order: 2;
+      margin-top: 0;
+    }
+
+    #screen-t-2b .cta-row {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 10px;
+    }
+
+    #screen-t-2b .cta-row .button {
+      order: 1;
+    }
+
+    #screen-t-2b .cta-row .status-line {
+      order: 2;
+      margin-top: 0;
+    }
+
     .hero-title,
     .section-title,
     .quote-text,
@@ -468,6 +498,11 @@
       white-space: nowrap;
     }
 
+    #screen-t-1 .section-title {
+      max-width: 26ch;
+      text-wrap: balance;
+    }
+
     #screen-2 .field-grid .field:nth-child(1) {
       grid-column: span 3;
     }
@@ -528,6 +563,17 @@
       outline: none;
     }
 
+    .field select {
+      appearance: none;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      padding-right: 44px;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1.5L6 6.5L11 1.5' stroke='%230B1529' stroke-width='1.5' fill='none' stroke-linecap='square'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 16px center;
+      background-size: 12px 8px;
+    }
+
     .field textarea {
       min-height: 122px;
       resize: vertical;
@@ -560,6 +606,15 @@
       font-size: 14px;
       line-height: 1.35;
       letter-spacing: -0.02em;
+      cursor: pointer;
+      user-select: none;
+      transition: background 140ms ease, border-color 140ms ease, color 140ms ease;
+    }
+
+    .chip:hover:not(.active):not(.muted) {
+      background: #f2f2f2;
+      border-color: #b8bec9;
+      color: var(--text);
     }
 
     .chip.active,
@@ -573,6 +628,7 @@
       border-color: var(--border-light);
       color: var(--inactive);
       background: var(--panel);
+      cursor: default;
     }
 
     .choice-card {
@@ -1550,9 +1606,37 @@
       updateMissionState();
     }
 
+    function initSelectableChips() {
+      const chips = Array.from(document.querySelectorAll(".chip-set .chip"));
+
+      chips.forEach((chip) => {
+        if (chip.classList.contains("muted")) {
+          return;
+        }
+
+        chip.setAttribute("role", "button");
+        chip.setAttribute("tabindex", "0");
+        chip.setAttribute("aria-pressed", String(chip.classList.contains("active")));
+
+        function toggleChip() {
+          chip.classList.toggle("active");
+          chip.setAttribute("aria-pressed", String(chip.classList.contains("active")));
+        }
+
+        chip.addEventListener("click", toggleChip);
+        chip.addEventListener("keydown", (event) => {
+          if (event.key === "Enter" || event.key === " ") {
+            event.preventDefault();
+            toggleChip();
+          }
+        });
+      });
+    }
+
     window.addEventListener("hashchange", showScreenFromHash);
     showScreenFromHash();
     initMissionBuilder();
+    initSelectableChips();
   })();
 </script>
 </body>
